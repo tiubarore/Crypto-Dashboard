@@ -1,6 +1,9 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
+import Spinner from "../components/Spinner";
+import CoinChart from "../components/CoinChart";
+
 const COIN_URL = import.meta.env.VITE_COIN_API_URL;
 const CoinDetails = () => {
   const [coin, setCoin] = useState(null);
@@ -32,7 +35,7 @@ const CoinDetails = () => {
         {coin ? `${coin.name} (${coin.symbol.toUpperCase()})` : "Coin Details"}
       </h1>
 
-      {/* {loading && <Spinner />} */}
+      {loading && <Spinner />}
       {error && <div className="error">❌ {error}</div>}
 
       {!loading && !error && (
@@ -42,6 +45,8 @@ const CoinDetails = () => {
             alt={coin.name}
             className="coin-details-image"
           />
+
+          <CoinChart coinId={coin.id} />
 
           <p>{coin.description.en.split(". ")[0] + "."}</p>
 
@@ -80,8 +85,6 @@ const CoinDetails = () => {
               Last Updated: {new Date(coin.last_updated).toLocaleDateString()}
             </h4>
           </div>
-
-          {/* <CoinChart coinId={coin.id} /> */}
 
           <div className="coin-details-links">
             {coin.links.homepage[0] && (

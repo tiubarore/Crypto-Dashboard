@@ -11,7 +11,7 @@ const App = () => {
   const [coins, setCoins] = useState([]);
   const [isLoading, setisLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(25);
   const [filter, setFilter] = useState("");
   const [sortBy, setSortBy] = useState("market_cap_desc");
 

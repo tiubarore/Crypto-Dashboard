@@ -3,6 +3,7 @@ import LimitSelector from "../components/LimitSelector";
 import FilterInput from "../components/FilterInput";
 import SortSelector from "../components/SortSelector";
 import Header from "../components/Header";
+import Spinner from "../components/Spinner";
 
 const HomePage = ({
   coins,
@@ -44,14 +45,14 @@ const HomePage = ({
       <h1>Crypto Dashboard</h1>
 
       <Header />
-      {isLoading && <p>Loading Coins...</p>}
+
       {error && <div className="error">{error}</div>}
       <div className="top-controls">
         <FilterInput filter={filter} setFilter={setFilter} />
         <LimitSelector limit={limit} setLimit={setLimit} />
         <SortSelector sortBy={sortBy} setSortBy={setSortBy} />
       </div>
-
+      {isLoading && <Spinner color="white" />}
       {!isLoading && !error && (
         <main className="grid">
           {filteredCoins.length > 0 ? (
