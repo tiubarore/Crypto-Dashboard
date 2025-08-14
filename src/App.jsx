@@ -3,7 +3,7 @@ import { Routes, Route, BrowserRouter } from "react-router";
 import HomePage from "./pages/home";
 import AboutPage from "./pages/about";
 import NotFound from "./pages/notFound";
-import CoinDetails from "./pages/coinDetails";
+import CoinDetails from "./pages/CoinDetail";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
